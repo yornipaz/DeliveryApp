@@ -1,4 +1,27 @@
 @use 'abstract/variable'as v;
 @use 'abstract/mixin'as m;
 
-.navigation {}
+.navigation {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+
+    @include m.screen('desktop') {
+        margin-top: 0;
+        width: auto;
+        flex-direction: row;
+    }
+
+    &__item {
+        font-size: 2rem;
+        font-weight: 700;
+        color: v.$black;
+
+        &--register {
+            @include m.button(v.$primary, v.$white);
+        }
+    }
+}

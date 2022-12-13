@@ -17,7 +17,8 @@ function css() {
     return src('src/scss/main.scss')
     .pipe( sourcemaps.init() )
         .pipe(sass())
-        .pipe(postcss([autoprefixer(), cssnano()]))
+        //.pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('.'))
         .pipe(dest('dist/css'))
 
@@ -26,7 +27,8 @@ function css() {
     return src('src/scss/page/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass())
-        .pipe(postcss([autoprefixer(), cssnano()]))
+        //.pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('.'))
         .pipe(dest('dist/css/pages'))
 }
