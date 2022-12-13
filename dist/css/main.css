@@ -590,4 +590,38 @@ template {
     width: 100%;
   }
 }
+
+.steps {
+  margin-top: 5rem;
+}
+.steps__bg {
+  margin-bottom: -1px;
+}
+.steps__content {
+  background-color: #e8505b;
+}
+.steps__title {
+  text-align: center;
+  color: #ffffff;
+}
+.steps__title--description {
+  font-size: 1.8rem;
+  display: block;
+}
+@media (min-width: 768px) {
+  .steps__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+  }
+}
+.steps__img {
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+.steps__img:hover {
+  -webkit-transform: rotate(-5deg) scale(1.1);
+          transform: rotate(-5deg) scale(1.1);
+}
 /*# sourceMappingURL=main.css.map */
