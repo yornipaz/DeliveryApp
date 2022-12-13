@@ -820,4 +820,62 @@ template {
     width: auto;
   }
 }
+
+.download {
+  background-color: #eceeef;
+  padding: 5rem 0;
+}
+.download__wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 5rem;
+}
+@media (min-width: 768px) {
+  .download__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+}
+.download__img {
+  width: 50%;
+  margin: 0 auto;
+  transition: -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+}
+.download__img:hover {
+  -webkit-transform: rotate(-6deg) scale(1.2);
+          transform: rotate(-6deg) scale(1.2);
+}
+
+.stores {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.stores__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.stores__title, .stores__text {
+  text-align: center;
+}
+.stores__title {
+  color: #455a64;
+  margin: 2rem 0 0 0;
+}
+.stores__text {
+  margin-bottom: 3rem;
+}
+.stores__link {
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+}
+.stores__link:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
 /*# sourceMappingURL=main.css.map */

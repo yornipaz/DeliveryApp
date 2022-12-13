@@ -1,0 +1,34 @@
+@use 'abstract/variable'as v;
+@use 'abstract/mixin'as m;
+
+.stores {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__wrapper {
+        @include m.grid(2, 2rem);
+    }
+
+    &__title,
+    &__text {
+        text-align: center;
+    }
+
+    &__title {
+        color: v.$secondary;
+        margin: 2rem 0 0 0;
+    }
+
+    &__text {
+        margin-bottom: 3rem;
+    }
+
+    &__link {
+        transition: transform .5s ease-in-out;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
