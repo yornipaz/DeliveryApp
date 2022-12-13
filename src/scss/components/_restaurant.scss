@@ -1,0 +1,69 @@
+@use 'abstract/variable'as v;
+@use 'abstract/mixin'as m;
+
+.restaurant {
+    background-color: v.$white;
+    padding: 4rem;
+    box-shadow: 0px 0px 2.6rem -.8rem darken(v.$light-grey, 40%);
+    margin-bottom: 2rem;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    @include m.screen('table') {
+        margin-bottom: 0;
+
+
+    }
+
+    &__img {
+        max-width: 20rem;
+        margin: 0 auto 2rem auto;
+    }
+
+    &__wrapper {
+        @include m.screen('table') {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            gap: 2rem;
+            align-items: center;
+
+        }
+
+        @include m.screen('desktop') {
+
+            grid-template-columns: 1fr 3fr;
+            gap: 4rem;
+
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include m.screen('table') {
+            align-items: flex-start;
+        }
+    }
+
+    &__name {
+        margin: 1rem 0;
+        color: v.$primary;
+        font-size: 2.4rem;
+    }
+
+    &__description {
+        margin: .5rem 0;
+        text-align: center;
+        font-size: 1.6rem;
+        color: v.$secondary;
+        line-height: 1.6;
+
+        @include m.screen('table') {
+            text-align: left;
+        }
+    }
+}
