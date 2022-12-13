@@ -1,0 +1,33 @@
+@use 'abstract/variable'as v;
+@use 'abstract/mixin'as m;
+
+.delivery {
+    padding: 5rem 0;
+
+    &__title {
+        text-align: center;
+        color: v.$secondary;
+    }
+
+    &__wrapper {
+        @include m.screen('table') {
+            @include m.grid(2, 5rem);
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+
+    &__description {
+        list-style: 1.5;
+        color: v.$secondary;
+    }
+
+    &__btn {
+        @include m.button(v.$primary, v.$white);
+    }
+}
