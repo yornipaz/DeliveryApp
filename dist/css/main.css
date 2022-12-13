@@ -36,9 +36,7 @@ h1,
 h2,
 h3 {
   font-family: "Roboto", serif;
-  text-transform: uppercase;
   line-height: 1.5;
-  text-align: center;
   margin: 0 0 5rem 0;
 }
 
@@ -48,7 +46,6 @@ h1 {
 
 h2 {
   font-size: 3.6rem;
-  color: #e8505b;
 }
 
 h3 {
@@ -517,6 +514,80 @@ template {
 @media (min-width: 768px) {
   .navigation__item--register {
     width: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .form__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
+.form__img-container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+.form__img {
+  width: 30rem;
+}
+@media (min-width: 1024px) {
+  .form__img {
+    width: 100%;
+  }
+}
+.form__content {
+  background-color: #e8505b;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.form__title {
+  color: #ffffff;
+  text-align: center;
+}
+.form__control {
+  margin-bottom: 1rem;
+}
+.form__label {
+  display: block;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 1rem 0;
+}
+.form__input {
+  width: 100%;
+  padding: 1.5rem;
+  border: none;
+}
+.form__submit {
+  background-color: #455a64;
+  font-size: 2rem;
+  padding: 1.2rem 3rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+.form__submit:hover {
+  cursor: pointer;
+  background-color: #303f46;
+}
+@media (min-width: 768px) {
+  .form__submit {
+    width: auto;
+  }
+}
+@media (min-width: 768px) {
+  .form__submit {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=main.css.map */
