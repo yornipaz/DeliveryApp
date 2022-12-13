@@ -2,5 +2,65 @@
 @use 'abstract/mixin'as m;
 
 .footer {
-   
+    background-color: v.$secondary;
+    padding-top: 5rem;
+
+    &__wrapper {
+        @include m.screen('table') {
+            @include m.grid(3, 1rem);
+        }
+    }
+
+    &__title {
+        color: v.$white;
+        margin: 0;
+        text-align: center;
+
+        @include m.screen('table') {
+            text-align: left;
+        }
+    }
+
+
+
+    &__item {
+        margin-bottom: 5rem;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    &__nav,
+    &__text {
+        margin-top: 2rem;
+    }
+
+    &__link,
+    &__text {
+        font-size: 2rem;
+        line-height: 1.8;
+        color: v.$white;
+        text-align: center;
+
+        @include m.screen('table') {
+            text-align: left;
+        }
+    }
+
+    &__copyright {
+        background-color: v.$primary;
+        text-align: center;
+        margin: 0;
+        padding: 2rem;
+        color: v.$white;
+    }
+
 }
