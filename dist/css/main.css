@@ -624,4 +624,77 @@ template {
   -webkit-transform: rotate(-5deg) scale(1.1);
           transform: rotate(-5deg) scale(1.1);
 }
+
+.testimonials {
+  padding: 5rem 0;
+}
+.testimonials__title {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .testimonials__wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+  }
+}
+
+.testimonial {
+  background-color: #455a64;
+  padding: 2rem;
+  border-radius: 1rem;
+  color: #ffffff;
+}
+.testimonial:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .testimonial:not(:last-of-type) {
+    margin-bottom: 0;
+  }
+  .testimonial:first-of-type {
+    grid-column: 1/4;
+  }
+  .testimonial:nth-child(3) {
+    grid-column: 5/6;
+    grid-row: 1/3;
+  }
+  .testimonial:nth-child(4) {
+    grid-column: 1/3;
+  }
+  .testimonial:nth-child(5) {
+    grid-column: 3/5;
+  }
+}
+.testimonial__header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.testimonial__img {
+  flex-basis: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.testimonial__author {
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+.testimonial__text {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 2rem 0 0 0;
+  padding-left: 2rem;
+  position: relative;
+}
+.testimonial__text::before {
+  content: '"';
+  font-size: 10rem;
+  position: absolute;
+  opacity: 0.3;
+  left: -0.5rem;
+  top: -4.5rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
 /*# sourceMappingURL=main.css.map */

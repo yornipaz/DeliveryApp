@@ -1,0 +1,16 @@
+@use 'abstract/variable'as v;
+@use 'abstract/mixin'as m;
+
+.testimonials {
+    padding: 5rem 0;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__wrapper {
+        @include m.screen('table') {
+            @include m.grid(5, 2rem);
+        }
+    }
+}
