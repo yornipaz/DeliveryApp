@@ -1,0 +1,39 @@
+@use 'abstract/variable'as v;
+@use 'abstract/mixin'as m;
+
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+
+
+body {
+  font-family: v.$font-primary;
+  font-size: 1.6rem;
+  line-height: 1.5;
+
+}
+
+a {
+  text-decoration: none;
+  color: v.$black;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+
+}
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

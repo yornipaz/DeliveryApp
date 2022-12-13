@@ -1,0 +1,158 @@
+@use 'variable'as v;
+// Generate property colors (color, background-colors and border-color) from current project palette.
+///
+/// @author Felipe Bonilla
+/// @group GUATIC
+///
+/// @param {Map} $colors - Project colors palette map.
+///
+/// @example scss
+///     @include generate-colors();
+///     //  .color-primary {
+///     //      color: #ef1700 !important;
+///     //  }
+///     //  .bg-primary {
+///     //      background: #ef1700;
+///     //  }
+///     //  .border-primary {
+///     //      border-color: #ef1700;
+///     //  }
+
+@mixin generate-color($name, $color) {
+
+  .color-#{$name} {
+    color: $color;
+  }
+
+  .bg-#{$name} {
+    background-color: $color;
+  }
+
+  .border-#{$name} {
+    border-color: $color;
+  }
+
+}
+
+/// Import and declare the font face.
+///
+/// @author Felipe Bonilla
+/// @group GUATIC
+///
+/// @param {String} $font-name - Declarative font name
+/// @param {String} $file-name - Exact font filename without extension
+/// @param {Number} $weight [normal] - Font-weight
+/// @param {String} $style [normal] - Font-style
+///
+/// @example scss
+///     @include font-face('Circular', 'Circular-Bold', 700);
+///     //  @font-face {
+///     //      font-family: "Circular";
+///     //      src: url("../fonts/Circular-Bold.eot");
+///     //      src: url("../fonts/Circular-Bold.woff") format("woff"),
+///     //           url("../fonts/Circular-Bold.woff2") format("woff2");
+///     //      font-weight: 700;
+///     //      font-style: normal;
+///     //  }
+
+@mixin font-face($font-name,
+  $file-name,
+  $weight: normal,
+  $style: normal) {
+  @at-root {
+    @font-face {
+      font-family: $font-name;
+      src: font($file-name + ".eot");
+      src: font($file-name + ".eot?#iefix") format("ie9-skip-eot"),
+        font($file-name + ".woff") format("woff"),
+        font($file-name + ".woff2") format("woff2");
+      font-weight: $weight;
+      font-style: $style;
+    }
+  }
+}
+
+/// Create CSS var palette
+///
+/// @author Felipe Bonilla 
+/// @group GUATIC
+///
+/// @param {String} $name - Color's name.
+/// @param {String} $color - HEX color.
+///
+/// @example scss
+///     @include palette('primary', #12c3f1);
+///     //  & {
+///     //      --color-primary-100: #d0f3fc;
+///     //      ...
+///     //      --color-primary-500: #12c3f1;
+///     //      ...
+///     //      --color-primary-900: #042730;
+///     //  }
+
+@mixin palette($name, $color) {
+  --color-#{$name}-50: #{mix(white, $color, 90%)};
+  --color-#{$name}-100: #{mix(white, $color, 80%)};
+  --color-#{$name}-200: #{mix(white, $color, 60%)};
+  --color-#{$name}-300: #{mix(white, $color, 40%)};
+  --color-#{$name}-400: #{mix(white, $color, 20%)};
+  --color-#{$name}-500: #{$color};
+  --color-#{$name}-600: #{mix(black, $color, 20%)};
+  --color-#{$name}-700: #{mix(black, $color, 40%)};
+  --color-#{$name}-800: #{mix(black, $color, 60%)};
+  --color-#{$name}-900: #{mix(black, $color, 80%)};
+}
+
+@mixin screen($type) {
+  @if $type=='smartphones' {
+    @media (min-width: v.$screen-smartphones) {
+      @content;
+    }
+  }
+
+  @if $type=='table' {
+    @media (min-width: v.$screen-table) {
+      @content;
+    }
+
+  }
+
+  @if $type=='desktop' {
+    @media (min-width: v.$screen-desktop) {
+      @content;
+    }
+  }
+
+}
+
+@mixin grid($column, $gap) {
+  display: grid;
+  grid-template-columns: repeat($column, 1fr);
+  gap: $gap;
+
+}
+
+
+@mixin button($color, $text) {
+  background-color: $color;
+  font-size: 2rem;
+  padding: 1.2rem 3rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: $text;
+  text-decoration: none;
+  transition: background-color .3s ease;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($color, 10);
+  }
+
+  @include screen('table') {
+    width: auto;
+  }
+}
